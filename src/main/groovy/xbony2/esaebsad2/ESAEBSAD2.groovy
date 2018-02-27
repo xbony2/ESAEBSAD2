@@ -28,7 +28,7 @@ class ESAEBSAD2 {
 		
 		
 		//TODO: resolve https://github.com/fastily/jwiki/issues/5
-		wiki = new Wiki(null, null, (HttpUrl)HttpUrl.parse("https://ftb.gamepedia.com/api.php"))
+		wiki = new Wiki(null, null, HttpUrl.parse("https://ftb.gamepedia.com/api.php") as HttpUrl)
 		WAction.postAction(wiki, "login", false, FL.pMap("lgname", args[1], "lgpassword", args[2], "lgtoken", wiki.getTokens(WQuery.TOKENS_LOGIN, "logintoken")))
 		wiki.conf.uname = "ESAEBSAD"
 		wiki.conf.token = wiki.getTokens(WQuery.TOKENS_CSRF, "csrftoken")
