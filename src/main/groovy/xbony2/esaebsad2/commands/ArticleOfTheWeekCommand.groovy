@@ -11,7 +11,7 @@ class ArticleOfTheWeekCommand implements CommandExecutor {
 	onCommand(){
 		def page = ESAEBSAD2.wiki.getRandomPages(1, NS.MAIN)[0]
 		
-		"The article of the week is..." + "\n" +
-		"${page}! <${HttpUrl.parse("https://ftb.gamepedia.com").newBuilder().addPathSegment(page).build()}>"
+		"""The article of the week is...
+		${page}! <${HttpUrl.parse("https://ftb.gamepedia.com").newBuilder().addPathSegment(page).build()}>"""
 	}
 }

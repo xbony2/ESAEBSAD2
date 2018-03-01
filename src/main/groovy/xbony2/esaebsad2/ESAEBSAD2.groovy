@@ -20,41 +20,40 @@ class ESAEBSAD2 {
 	static main(def args){
 		jda = new JDABuilder(AccountType.BOT).setToken(args[0]).buildBlocking()
 		handler = new JDA3Handler(jda)
-		handler.registerCommand(new ArticleOfTheWeekCommand())
-		handler.registerCommand(new DevCommand())
-		handler.registerCommand(new FixDoubleRedirectsCommand())
-		handler.registerCommand(new FlipCommand())
-		handler.registerCommand(new HelpCommand())
+		handler.with {
+			registerCommand(new ArticleOfTheWeekCommand())
+			registerCommand(new DevCommand())
+			registerCommand(new FixDoubleRedirectsCommand())
+			registerCommand(new FlipCommand())
+			registerCommand(new HelpCommand())
+			registerCommand(new RefreshRolesCommand())
+		}
 		
+		Utils.setJDARoles()
 		
 		//TODO: resolve https://github.com/fastily/jwiki/issues/5
 		wiki = new Wiki(null, null, HttpUrl.parse("https://ftb.gamepedia.com/api.php") as HttpUrl)
-		WAction.postAction(wiki, "login", false, FL.pMap("lgname", args[1], "lgpassword", args[2], "lgtoken", wiki.getTokens(WQuery.TOKENS_LOGIN, "logintoken")))
+		WAction.postAction(wiki, "login", false, [lgname: args[1], lgpassword: args[2], lgtoken: wiki.getTokens(WQuery.TOKENS_LOGIN, "logintoken")])
 		wiki.conf.uname = "ESAEBSAD"
 		wiki.conf.token = wiki.getTokens(WQuery.TOKENS_CSRF, "csrftoken")
-		def wlField = Wiki.class.getDeclaredField("wl")
+		def wlField = Wiki.getDeclaredField("wl")
 		wlField.setAccessible(true)
 		wlField.get(wiki).put(wiki.conf.hostname, wiki)
 		
 		wiki.conf.isBot = wiki.listUserRights(wiki.conf.uname).contains("bot")
 		
-		
 		// Test zone
-		def wq = new WQuery(wiki, new WQuery.QTemplate(FL.pMap("list", "querypage", "qppage", "DoubleRedirects"), "results"))
+		/*def wq = new WQuery(wiki, new WQuery.QTemplate(FL.pMap("list", "querypage", "qppage", "DoubleRedirects"), "results"))
 		
 		def links = []
 		
 		while(wq.has()){
-			/*links.addAll(FL.toAL(wq.next().listComp("querypage").stream().map(e -> GSONP.getStr(e, "title"))))
-			
-			links.addAll(wq.next().listComp("querypage").each {e -> GSONP.getStr(e, "title")})*/
-			
-			wq.next().listComp("querypage")/*.each {json ->
+			wq.next().listComp("querypage").each {json ->
 				links.add(GSONP.getStr(json, "title"))
-			}*/
+			}
 			
 		}
 		
-		links.each {link -> println(link)}
+		links.each {link -> println(link)}*/
 	}
 }
