@@ -17,7 +17,7 @@ dependencies {
 	compile "net.dv8tion:JDA:3.5.1_339"
 	compile "com.github.BtoBastian.sdcf4j:sdcf4j-core:v1.0.9"
 	compile "com.github.BtoBastian.sdcf4j:sdcf4j-jda3:v1.0.9"
-	compile "fastily:jwiki:1.5.0"
+	compile "fastily:jwiki:1.6.0"
 }
 
 run {

@@ -31,29 +31,6 @@ class ESAEBSAD2 {
 		
 		Utils.setJDARoles()
 		
-		//TODO: resolve https://github.com/fastily/jwiki/issues/5
-		wiki = new Wiki(null, null, HttpUrl.parse("https://ftb.gamepedia.com/api.php") as HttpUrl)
-		WAction.postAction(wiki, "login", false, [lgname: args[1], lgpassword: args[2], lgtoken: wiki.getTokens(WQuery.TOKENS_LOGIN, "logintoken")])
-		wiki.conf.uname = "ESAEBSAD"
-		wiki.conf.token = wiki.getTokens(WQuery.TOKENS_CSRF, "csrftoken")
-		def wlField = Wiki.getDeclaredField("wl")
-		wlField.setAccessible(true)
-		wlField.get(wiki).put(wiki.conf.hostname, wiki)
-		
-		wiki.conf.isBot = wiki.listUserRights(wiki.conf.uname).contains("bot")
-		
-		// Test zone
-		/*def wq = new WQuery(wiki, new WQuery.QTemplate(FL.pMap("list", "querypage", "qppage", "DoubleRedirects"), "results"))
-		
-		def links = []
-		
-		while(wq.has()){
-			wq.next().listComp("querypage").each {json ->
-				links.add(GSONP.getStr(json, "title"))
-			}
-			
-		}
-		
-		links.each {link -> println(link)}*/
+		wiki = new Wiki(args[1], args[2], "ftb.gamepedia.com")
 	}
 }
