@@ -31,6 +31,8 @@ class ESAEBSAD2 {
 		
 		Utils.setJDARoles()
 		
-		wiki = new Wiki(args[1], args[2], "ftb.gamepedia.com")
+		wiki = new Wiki("ftb.gamepedia.com")
+		wiki.conf.debug = true
+		wiki.login(args[1], args[2])
 	}
 }
