@@ -11,7 +11,7 @@ import okhttp3.HttpUrl
 
 class FixDoubleRedirectsCommand implements CommandExecutor {
 	@Command(aliases = ["!fixdoubleredirects"], requiredPermissions = "editor", description = "The fix double redirects command will go through the double redirects list and attempt to automatically fix them.")
-	onCommand(){
+	onCommand(){ //TODO
 		wiki.querySpecialPage("DoubleRedirects", -1).each {
 			def target = wiki.getPageText(it).replaceAll("#REDIRECT \\[\\[", "").replaceAll("]]", "")
 			def targetsTarget = wiki.getPageText(target).replaceAll("#REDIRECT \\[\\[", "").replaceAll("]]", "")

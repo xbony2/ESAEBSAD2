@@ -1,7 +1,7 @@
 apply plugin: "groovy"
 apply plugin: "application"
 
-sourceCompatibility = "1.8"
+sourceCompatibility = "1.12"
 [compileJava, compileTestJava]*.options*.encoding = "UTF-8"
 
 repositories {
@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-	compile "org.codehaus.groovy:groovy-all:2.4.13"
+	compile "org.codehaus.groovy:groovy-all:2.5.8"
 	compile "net.dv8tion:JDA:3.5.1_339"
 	compile "com.github.BtoBastian.sdcf4j:sdcf4j-core:v1.0.9"
 	compile "com.github.BtoBastian.sdcf4j:sdcf4j-jda3:v1.0.9"
