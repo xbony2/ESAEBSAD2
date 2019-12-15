@@ -11,11 +11,11 @@ class HelpCommand implements CommandExecutor {
 			
 		builder.append "```"
 			
-		ESAEBSAD2.handler.getCommands().each {
+		ESAEBSAD2.handler.getCommands().each { command ->
 			builder.append "\n"
-			def annotation = it.getCommandAnnotation()
+			def annotation = command.getCommandAnnotation()
 			
-			builder.append "${annotation.usage() ?: annotation.aliases()[0]} | ${annotation.description()}" // if there's not a defined usage the alias will be used
+			builder.append "${annotation.usage() ?: annotation.aliases()[0]} | ${annotation.description()}"
 		}
 		
 		builder.append "\n```"

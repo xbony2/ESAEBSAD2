@@ -1,5 +1,8 @@
 # ESAEBSAD2
-A Discord bot used by the Official FTB Wiki (mostly me) to accomplish various automated tasks. Kind of an experiment as of right now.
+A Discord bot used by the Official FTB Wiki (mostly me) to accomplish various automated tasks. Kind of experimental as of right now.
+
+## E-say-bee-what?
+It's pronounced /i.ˈseɪ.bi.sæd.tu/ (e-say-b-sad-two). It stands for **E**xperimental **S**elf **A**ware **E**lectronic **B**ased **S**pace **A**nalyzing **D**roid [in the] **2**nd-Dimension. Unfortunately, because the bot is stuck in the second dimension, it can't analyze space very well, so instead it just does random tasks that I want it to. Mostly this is just find-replace operations and things like that.
 
 ## Setup
 A [Discord application token](https://discordapp.com/developers/applications) should already be generated, and a [bot login and password](https://ftb.gamepedia.com/Special:BotPasswords) should be generated (assuming you are using Gamepedia; if another service is used, it's probably just the username and password for the wikiLogin and wikiToken).
@@ -17,3 +20,10 @@ For development, I have an Eclipse run configuration that is a Gradle task of th
 
 ## Usage
 Just run the command `!help` and it will list all of the commands and how to use them. ezpz.
+
+## Dependencies
+Gradle takes care of all of the dependencies so you don't need to worry about them, but here's what libraries this bot uses:
+* [Groovy](http://groovy-lang.org/)
+* [Java Discord API 3 (aka JDA3)](https://github.com/DV8FromTheWorld/JDA) (not JDA 4, since the next library doesn't support it yet)
+* [sdcf4j](https://github.com/Bastian/sdcf4j) (the core and the JDA3 library)
+* [jwiki](https://github.com/fastily/jwiki)
