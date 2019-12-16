@@ -9,8 +9,11 @@ class GenerateLanguageCategoriesCommand implements CommandExecutor {
 	@Command(aliases = ["!genlangcats"], requiredPermissions = "editor", description = """The generate language 
 categories command will generate language-deviation categories based on the wanted categories list.""")
 	onCommand(){
-		wiki.querySpecialPage("WantedCategories", -1).each { page ->
-			println page // TODO
+		wiki.querySpecialPage("Wantedcategories", -1).each { page ->
+			def match = page =~ /^Category:(.+)\/(\w{2}|\w{2}-\w{2}|tl-b)$/
+			
+			if(match.find())
+				wiki.edit(page, "[[Category:${match.group(1)}]]", "Generated language category.")
 		}
 		
 		"Done."

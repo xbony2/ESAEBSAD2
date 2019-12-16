@@ -22,6 +22,7 @@ class ESAEBSAD2 {
 		handler = new JDA3Handler(jda)
 		handler.with {
 			registerCommand(new ArticleOfTheWeekCommand())
+			registerCommand(new DeleteUnusedLanguageCategoriesCommand())
 			registerCommand(new DevCommand())
 			registerCommand(new FixDoubleRedirectsCommand())
 			registerCommand(new FlipCommand())
