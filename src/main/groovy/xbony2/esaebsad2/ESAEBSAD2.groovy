@@ -27,10 +27,12 @@ class ESAEBSAD2 {
 			registerCommand(new FlipCommand())
 			registerCommand(new HelpCommand())
 			registerCommand(new RefreshRolesCommand())
+			registerCommand(new StopCommand())
 		}
 		
 		Utils.setJDARoles()
 		
 		wiki = new Wiki(args[1], args[2], HttpUrl.parse("https://ftb.gamepedia.com/api.php"), null, null)
+		//wiki = new Wiki(args[1], args[2], "ftb.gamepedia.com") // <- syntax if we can switch to jwiki 1.7.0
 	}
 }

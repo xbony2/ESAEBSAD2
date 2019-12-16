@@ -6,6 +6,10 @@ class Utils {
 			server.getMembersWithRoles(server.getRolesByName("Editor", false)).each { member ->
 				ESAEBSAD2.handler.addPermission(member.getUser().getId(), "editor")
 			}
+			
+			server.getMembersWithRoles(server.getRolesByName("Moderator", false)).each { member ->
+				ESAEBSAD2.handler.addPermission(member.getUser().getId(), "moderator")
+			}
 		}
 	}
 }

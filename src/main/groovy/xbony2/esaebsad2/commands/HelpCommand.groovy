@@ -10,15 +10,28 @@ class HelpCommand implements CommandExecutor {
 		def builder = new StringBuilder()
 			
 		builder.append "```"
-			
+		
 		ESAEBSAD2.handler.getCommands().each { command ->
 			builder.append "\n"
 			def annotation = command.getCommandAnnotation()
+			def emoji = getPermissionEmoji(annotation)
 			
-			builder.append "${annotation.usage() ?: annotation.aliases()[0]} | ${annotation.description()}"
+			builder.append "${annotation.usage() ?: annotation.aliases()[0]} | ${emoji} ${annotation.description()}"
 		}
 		
 		builder.append "\n```"
+		builder.append "Permissions: 🙂 for everyone, 🚷 for Editors, ☢ for Moderators"
 		builder.toString()
+	}
+	
+	private static String getPermissionEmoji(Command command){
+		switch(command.requiredPermissions()){
+			case "moderator":
+				return "☢"
+			case "editor":
+				return "🚷"
+			default:
+				return "🙂"
+		}
 	}
 }

@@ -1,5 +1,5 @@
 # ESAEBSAD2
-A Discord bot used by the Official FTB Wiki (mostly me) to accomplish various automated tasks. Kind of experimental as of right now.
+A Discord bot used by the Official FTB Wiki (mostly me) to accomplish various automated tasks. Kind of experimental as of right now. This is a recreation of [ESAEBSAD (1)](https://github.com/xbony2/Experimental-Self-Aware-Electronic-Based-Space-Analyzing-Droid).
 
 ## E-say-bee-what?
 It's pronounced /i.ˈseɪ.bi.sæd.tu/ (e-say-b-sad-two). It stands for **E**xperimental **S**elf **A**ware **E**lectronic **B**ased **S**pace **A**nalyzing **D**roid [in the] **2**nd-Dimension. Unfortunately, because the bot is stuck in the second dimension, it can't analyze space very well, so instead it just does random tasks that I want it to. Mostly this is just find-replace operations and things like that.
