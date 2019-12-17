@@ -16,7 +16,8 @@ class HelpCommand implements CommandExecutor {
 			def annotation = command.getCommandAnnotation()
 			def emoji = getPermissionEmoji(annotation)
 			
-			builder.append "${annotation.usage() ?: annotation.aliases()[0]} | ${emoji} ${annotation.description()}"
+			builder.append "${annotation.usage() ?: annotation.aliases()[0]} ${emoji}\n"
+			builder.append "\t${annotation.description()}"
 		}
 		
 		builder.append "\n```"
