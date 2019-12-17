@@ -6,8 +6,8 @@ import de.btobastian.sdcf4j.Command
 import de.btobastian.sdcf4j.CommandExecutor
 
 class FixDoubleRedirectsCommand implements CommandExecutor {
-	@Command(aliases = ["!fixdoubleredirects"], requiredPermissions = "editor", description = """The fix double 
-redirects command will go through the double redirects list and attempt to automatically fix them.""")
+	@Command(aliases = ["!fixdoubleredirects"], requiredPermissions = "editor", description = 
+		"The fix double redirects command will go through the double redirects list and attempt to automatically fix them.")
 	onCommand(){
 		wiki.querySpecialPage("DoubleRedirects", -1).each { page ->
 			def target = getRedirectTarget(page)

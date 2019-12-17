@@ -7,8 +7,8 @@ import de.btobastian.sdcf4j.CommandExecutor
 import xbony2.esaebsad2.Utils
 
 class GenerateLanguageCategoriesCommand implements CommandExecutor {
-	@Command(aliases = ["!genlangcats"], requiredPermissions = "editor", description = """The generate language 
-categories command will generate language-deviation categories based on the wanted categories list.""")
+	@Command(aliases = ["!genlangcats"], requiredPermissions = "editor", description = 
+		"The generate language categories command will generate language-deviation categories based on the wanted categories list.")
 	onCommand(){
 		wiki.querySpecialPage("Wantedcategories", -1).each { page ->
 			def match = page =~ Utils.LANGUAGE_CATEGORY_REGEX
