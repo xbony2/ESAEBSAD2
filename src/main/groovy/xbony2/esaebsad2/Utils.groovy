@@ -1,5 +1,7 @@
 package xbony2.esaebsad2
 
+import net.dv8tion.jda.core.entities.Message
+
 class Utils {
 	
 	def static final LANGUAGE_CATEGORY_REGEX = 
@@ -15,5 +17,37 @@ class Utils {
 				ESAEBSAD2.handler.addPermission(member.getUser().getId(), "moderator")
 			}
 		}
+	}
+	
+	// TODO: perhaps put into one method
+	static String getOneArgument(Message message){
+		def match = message.getContentRaw() =~ /![a-z]+ (.+)/
+		
+		match.find() ? match.group(1) : null
+	}
+	
+	static ArrayList<String> getTwoArguments(Message message){
+		def match = message.getContentRaw() =~ /![a-z]+ (.+); (.+)/
+		
+		match.find() ? [match.group(1), match.group(2)] : null
+	}
+	
+	static ArrayList<String> getThreeArguments(Message message){
+		def match = message.getContentRaw() =~ /![a-z]+ (.+); (.+); (.+)/
+		
+		match.find() ? [match.group(1), match.group(2), match.group(3)] : null
+	}
+	
+	static String getUserFromTag(String tag){
+		def match = tag =~ /(.+)#(\d{1,4})/
+		def ret = null
+		
+		if(match.find())
+			ESAEBSAD2.jda.getUsers().each {user -> 
+				if(match.groups(1).equals(user.getName()) && match.groups(2).equals(user.getDiscriminator()))
+					ret = user.getAsMention()
+			}
+		
+		ret
 	}
 }

@@ -27,6 +27,7 @@ class ESAEBSAD2 {
 			registerCommand(new FixDoubleRedirectsCommand())
 			registerCommand(new FlipCommand())
 			registerCommand(new GenerateLanguageCategoriesCommand())
+			registerCommand(new GiveHelpCommand())
 			registerCommand(new HelpCommand())
 			registerCommand(new RefreshRolesCommand())
 			registerCommand(new StopCommand())
