@@ -38,13 +38,13 @@ class Utils {
 		match.find() ? [match.group(1), match.group(2), match.group(3)] : null
 	}
 	
-	static String getUserFromTag(String tag){
-		def match = tag =~ /(.+)#(\d{1,4})/
-		def ret = null
+	static String getUserMentionFromTag(String tag){
+		def match = tag =~ /^(.+)#(\d{1,4})$/
+		String ret = null
 		
 		if(match.find())
 			ESAEBSAD2.jda.getUsers().each {user -> 
-				if(match.groups(1).equals(user.getName()) && match.groups(2).equals(user.getDiscriminator()))
+				if(match.group(1).equals(user.getName()) && match.group(2).equals(user.getDiscriminator()))
 					ret = user.getAsMention()
 			}
 		
