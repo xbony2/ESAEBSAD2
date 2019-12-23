@@ -9,12 +9,11 @@ import xbony2.esaebsad2.ESAEBSAD2
 class GiveHelpCommand implements CommandExecutor {
 	@Command(aliases = ["!givehelp"], description = "The give help command helps a confused user")
 	onCommand(Message message){
-		println message.getContentRaw()
-		def args = Utils.getOneArgument(message)
+		def arg = Utils.getOneArgument(message)
 		def ret = ""
 		
-		if(args != null){
-			def match = args =~ /^(<@!\d+>|.+#\d{1,4})$/
+		if(arg != null){
+			def match = arg =~ /^(<@!\d+>|.+#\d{1,4})$/
 			
 			if(match.find()){
 				if(match.group(1)[0] == ('<' as char))
