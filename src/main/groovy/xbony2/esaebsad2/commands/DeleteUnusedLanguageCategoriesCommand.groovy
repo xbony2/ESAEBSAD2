@@ -7,8 +7,8 @@ import de.btobastian.sdcf4j.CommandExecutor
 import xbony2.esaebsad2.Utils
 
 class DeleteUnusedLanguageCategoriesCommand implements CommandExecutor {
-	@Command(aliases = ["!deleteunusedlangcats"], requiredPermissions = "editor", description = 
-		"The delete unused language categories command will deleted unused language categories based on the unused categories list.")
+	@Command(aliases = ["!deleteunusedlangcats"], requiredPermissions = "editor", description =
+		"The delete unused language categories command will delete unused language categories. These categories usually become unused through changes in the category of the untranslated page.")
 	onCommand(){
 		wiki.querySpecialPage("Unusedcategories", -1).each { page ->
 			def match = page =~ Utils.LANGUAGE_CATEGORY_REGEX
@@ -19,4 +19,6 @@ class DeleteUnusedLanguageCategoriesCommand implements CommandExecutor {
 		
 		"Done."
 	}
+	
+	
 }

@@ -9,7 +9,7 @@ import xbony2.esaebsad2.Utils
 
 class HelpCommand implements CommandExecutor {
 	@Command(aliases = ["!help"], description = 
-		"The help command gives a list of commands, and specifics given a single parameter.")
+		"The help command gives a list of commands. Specifics can be given if the help command is run with a single parameter, such as `!help dev`.")
 	onCommand(Message message){
 		def arg = Utils.getOneArgument(message)
 		
@@ -39,7 +39,7 @@ class HelpCommand implements CommandExecutor {
 				builder.append "\n"
 				builder.append "\n${annotation.description()}"
 				builder.append "\n"
-				builder.append "\nThis command requires the \"${permission}\" (${emoji}) permission"
+				builder.append "\nThis command requires the \"${permission}\" (${emoji}) permission."
 				
 				builder.append "\n```"
 				builder.toString()
@@ -59,7 +59,8 @@ class HelpCommand implements CommandExecutor {
 			}
 			
 			builder.append "\n```"
-			builder.append "Permissions: 🙂 for everyone, 🚷 for Editors, ☢ for Moderators"
+			builder.append "\nPermissions: 🙂 for everyone, 🚷 for Editors, ☢ for Moderators."
+			builder.append "\nFor more information on a particular command, give the help command the name of the command as an argument."
 			builder.toString()
 		}
 	}

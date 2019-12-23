@@ -7,7 +7,7 @@ import xbony2.esaebsad2.Utils
 import xbony2.esaebsad2.ESAEBSAD2
 
 class GiveHelpCommand implements CommandExecutor {
-	@Command(aliases = ["!givehelp"], description = "The give help command helps a confused user")
+	@Command(aliases = ["!givehelp"], description = "The give help command helps a confused user, informing them that this Discord is not the best place to ask for general help. Can accept one optional argument, that being the Discord tag of the user.")
 	onCommand(Message message){
 		def arg = Utils.getOneArgument(message)
 		def ret = ""
