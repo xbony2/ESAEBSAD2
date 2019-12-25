@@ -31,4 +31,4 @@ Gradle takes care of all of the dependencies so you don't need to worry about th
 ## TODOs
 * A [find-replace command](https://github.com/xbony2/Experimental-Self-Aware-Electronic-Based-Space-Analyzing-Droid/blob/master/lib/esaebsad/plugins/commands/findreplace.rb) (or commands)
 * Based on the above, perhaps commands to help do disambiguation, category renames, link renames, etc. I had some of this in the original ESAEBSAD but I didn't use it much so I don't know if they really worked.
-* Some kind of silly command, but definitely not five of them.
+* A date of last article made command, with Retep998 being the default argument (lol).
