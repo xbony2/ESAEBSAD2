@@ -1,6 +1,7 @@
 package xbony2.esaebsad2
 
 import net.dv8tion.jda.core.entities.Message
+import okhttp3.HttpUrl
 
 class Utils {
 	
@@ -49,5 +50,9 @@ class Utils {
 			}
 		
 		ret
+	}
+	
+	static String linkFromArticle(String article){
+		HttpUrl.parse("https://ftb.gamepedia.com").newBuilder().addPathSegment(article).build()
 	}
 }

@@ -5,6 +5,7 @@ import de.btobastian.sdcf4j.CommandExecutor
 import fastily.jwiki.core.NS;
 import okhttp3.HttpUrl
 import xbony2.esaebsad2.ESAEBSAD2
+import xbony2.esaebsad2.Utils
 
 class ArticleOfTheWeekCommand implements CommandExecutor {
 	@Command(aliases = ["!articleoftheweek"], description = 
@@ -13,6 +14,7 @@ class ArticleOfTheWeekCommand implements CommandExecutor {
 		def page = ESAEBSAD2.wiki.getRandomPages(1, NS.MAIN)[0]
 		
 		"""The article of the week is...
-$page! <${HttpUrl.parse("https://ftb.gamepedia.com").newBuilder().addPathSegment(page).build()}>"""
+
+||**$page!** <${Utils.linkFromArticle(page)}>||"""
 	}
 }
