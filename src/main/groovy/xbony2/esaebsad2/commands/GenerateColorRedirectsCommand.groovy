@@ -8,7 +8,7 @@ import net.dv8tion.jda.core.entities.Message
 import xbony2.esaebsad2.Utils
 
 class GenerateColorRedirectsCommand implements CommandExecutor {
-	@Command(aliases = ["!generatecolorredirects"], requiredPermissions = "editor", description = 
+	@Command(aliases = ["!gencolorredirects"], requiredPermissions = "editor", description = 
 		"The generate color redirects will generate redirects to a page based on Minecraft's 16 colors. An example use of this command is !generatecolorredirects %COLOR% Pot; Pot")
 	onCommand(Message message){
 		def args = Utils.getTwoArguments(message)

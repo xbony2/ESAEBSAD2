@@ -22,7 +22,7 @@ class GiveHelpCommand implements CommandExecutor {
 					def username = Utils.getUserMentionFromTag(match.group(1))
 					
 					if(username != null)
-						ret += "Hello ${username}! "
+						ret += "Hello $username! "
 				}
 			}
 		}

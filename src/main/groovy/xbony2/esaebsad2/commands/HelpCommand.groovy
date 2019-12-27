@@ -39,7 +39,7 @@ class HelpCommand implements CommandExecutor {
 				builder.append "\n"
 				builder.append "\n${annotation.description()}"
 				builder.append "\n"
-				builder.append "\nThis command requires the \"${permission}\" (${emoji}) permission."
+				builder.append "\nThis command requires the \"$permission\" ($emoji) permission."
 				
 				builder.append "\n```"
 				builder.toString()
@@ -55,7 +55,7 @@ class HelpCommand implements CommandExecutor {
 				def annotation = command.getCommandAnnotation()
 				def emoji = getPermissionEmoji(annotation)
 				
-				builder.append "\n${annotation.usage() ?: annotation.aliases()[0]} ${emoji}"
+				builder.append "\n${annotation.usage() ?: annotation.aliases()[0]} $emoji"
 			}
 			
 			builder.append "\n```"

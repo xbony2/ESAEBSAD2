@@ -1,0 +1,53 @@
+package xbony2.esaebsad2.commands
+
+import static xbony2.esaebsad2.ESAEBSAD2.wiki
+
+import java.time.Instant;
+
+import de.btobastian.sdcf4j.Command
+import de.btobastian.sdcf4j.CommandExecutor
+import fastily.jwiki.core.NS;
+import fastily.jwiki.dwrap.Contrib
+import net.dv8tion.jda.core.entities.Message
+import xbony2.esaebsad2.Utils
+
+class TimeSinceLastArticleCommand implements CommandExecutor {
+	@Command(aliases = ["!timesincelastarticle"], description = "The time since last article command will give the amount of time it has been since the last article that the user (whose username is given as an argument) was created. Doesn't count redirects, vanilla, and disambiguation pages. This command might be very slow and possibly might not work at all if the wiki throws a \"429 Too Many Requests\" error.")
+	onCommand(Message message){
+		def arg = Utils.getOneArgument(message)
+		def ret = ""
+		
+		//TODO: allow Retep998 as a default argument.
+		//TODO: Try to find a way around the 429 Too Many Requests issue, or at least catch it and get it to pause or something
+		//TODO: make output not in seconds
+		if(arg != null){
+			def foundContrib = wiki.getContribs(arg, -1, false, NS.MAIN).find { Contrib contrib ->
+				def title = contrib.title
+				
+				if(arg.equals(wiki.getPageCreator(title))
+					&& wiki.getRevisions(title, 1, true, null, null)[0].timestamp.equals(contrib.timestamp)){
+					
+					def text = wiki.getPageText(title)
+					
+					if(!text.contains("#REDIRECT")
+						&& !text.contains("{{Disambiguation}}")
+						&& !text.contains("{{Vanilla")){
+						
+						def secs = contrib.timestamp.secondsUntil(Instant.now())
+						def whenMade = contrib.timestamp.toDate()
+						
+						ret = "The last article created by $arg is $title, created on $whenMade. It has been $secs seconds."
+						return true // this will break from the closure
+					}
+				}
+					
+			}
+			
+			if(foundContrib == null)
+				ret = "No articles found."
+		}else
+			ret = "Illegal arguments."
+		
+		ret
+	}
+}

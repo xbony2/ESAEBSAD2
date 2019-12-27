@@ -13,7 +13,7 @@ class FixDoubleRedirectsCommand implements CommandExecutor {
 			def target = getRedirectTarget(page)
 			def targetsTarget = getRedirectTarget(target)
 			
-			wiki.edit(page, "#REDIRECT [[${targetsTarget}]]", "Fixed double redirect.")
+			wiki.edit(page, "#REDIRECT [[$targetsTarget]]", "Fixed double redirect.")
 		}
 		
 		"Done."

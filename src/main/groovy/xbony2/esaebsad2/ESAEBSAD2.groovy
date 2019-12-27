@@ -32,6 +32,7 @@ class ESAEBSAD2 {
 			registerCommand(new HelpCommand())
 			registerCommand(new RefreshRolesCommand())
 			registerCommand(new StopCommand())
+			registerCommand(new TimeSinceLastArticleCommand())
 		}
 		
 		Utils.setJDARoles()
