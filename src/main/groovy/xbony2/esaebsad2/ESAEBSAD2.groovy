@@ -30,9 +30,11 @@ class ESAEBSAD2 {
 			registerCommand(new GenerateLanguageCategoriesCommand())
 			registerCommand(new GiveHelpCommand())
 			registerCommand(new HelpCommand())
+			registerCommand(new ListActionsDoneCommand())
 			registerCommand(new RefreshRolesCommand())
 			registerCommand(new StopCommand())
 			registerCommand(new TimeSinceLastArticleCommand())
+			registerCommand(new UndoActionByID())
 		}
 		
 		Utils.setJDARoles()

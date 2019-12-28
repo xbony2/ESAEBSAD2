@@ -55,4 +55,8 @@ class Utils {
 	static String linkFromArticle(String article){
 		HttpUrl.parse("https://ftb.gamepedia.com").newBuilder().addPathSegment(article).build()
 	}
+	
+	static String cutTo25(String string){
+		string.length() >= 25 ? "${string.substring(0, 25)}..." : string
+	}
 }

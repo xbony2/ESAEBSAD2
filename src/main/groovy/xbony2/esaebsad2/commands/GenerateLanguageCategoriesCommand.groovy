@@ -4,7 +4,9 @@ import static xbony2.esaebsad2.ESAEBSAD2.wiki
 
 import de.btobastian.sdcf4j.Command
 import de.btobastian.sdcf4j.CommandExecutor
+import xbony2.esaebsad2.ActionHandler
 import xbony2.esaebsad2.Utils
+import xbony2.esaebsad2.actions.CreatePageAction
 
 class GenerateLanguageCategoriesCommand implements CommandExecutor {
 	@Command(aliases = ["!genlangcats"], requiredPermissions = "editor", description = 
@@ -13,8 +15,10 @@ class GenerateLanguageCategoriesCommand implements CommandExecutor {
 		wiki.querySpecialPage("Wantedcategories", -1).each { page ->
 			def match = page =~ Utils.LANGUAGE_CATEGORY_REGEX
 			
-			if(match.find())
+			if(match.find()){
+				ActionHandler.addAction(new CreatePageAction("genlangcats", page))
 				wiki.edit(page, "[[Category:${match.group(1)}]]", "Generated language category.")
+			}
 		}
 		
 		"Done."

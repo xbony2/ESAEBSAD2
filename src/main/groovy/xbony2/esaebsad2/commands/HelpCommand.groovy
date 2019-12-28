@@ -35,14 +35,15 @@ class HelpCommand implements CommandExecutor {
 				def permission = annotation.requiredPermissions()
 				def emoji = getPermissionEmoji(annotation)
 				
-				builder.append "\n${annotation.usage() ?: annotation.aliases()[0]}"
-				builder.append "\n"
-				builder.append "\n${annotation.description()}"
-				builder.append "\n"
-				builder.append "\nThis command requires the \"$permission\" ($emoji) permission."
-				
-				builder.append "\n```"
-				builder.toString()
+				builder.with {
+					append "\n${annotation.usage() ?: annotation.aliases()[0]}"
+					append "\n"
+					append "\n${annotation.description()}"
+					append "\n"
+					append "\nThis command requires the \"$permission\" ($emoji) permission."
+					append "\n```"
+					return toString()
+				}
 			}else{
 				"Command not found."
 			}
@@ -58,10 +59,12 @@ class HelpCommand implements CommandExecutor {
 				builder.append "\n${annotation.usage() ?: annotation.aliases()[0]} $emoji"
 			}
 			
-			builder.append "\n```"
-			builder.append "\nPermissions: 🙂 for everyone, 🚷 for Editors, ☢ for Moderators."
-			builder.append "\nFor more information on a particular command, give the help command the name of the command as an argument."
-			builder.toString()
+			builder.with {
+				append "\n```"
+				append "\nPermissions: 🙂 for everyone, 🚷 for Editors, ☢ for Moderators."
+				append "\nFor more information on a particular command, give the help command the name of the command as an argument."
+				return toString()
+			}
 		}
 	}
 	
