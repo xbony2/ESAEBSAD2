@@ -1,16 +1,21 @@
 package xbony2.esaebsad2.actions
 
 import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
+
+import xbony2.esaebsad2.Utils
 
 abstract class Action {
-	private final String actionName
-	private final String commandName
-	private final Instant whenExecuted
+	final String actionName
+	final String commandName
+	final Instant whenExecuted
 	
 	/**
 	 * This is -1 per default, but will be adjusted once the event is registered.
 	 */
-	private int id = -1
+	int id = -1
 	
 	Action(String actionName, String commandName){
 		this.actionName = actionName
@@ -29,6 +34,6 @@ abstract class Action {
 	 * This should be formated in a way that the list actions done commands can print.
 	 */
 	public String format(){
-		"$actionName\t$commandName\t${whenExecuted.toString()}"
+		"$actionName\t$id\t$commandName\t${Utils.formatter.format(whenExecuted)}"
 	}
 }

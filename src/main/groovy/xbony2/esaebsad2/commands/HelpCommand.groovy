@@ -42,8 +42,9 @@ class HelpCommand implements CommandExecutor {
 					append "\n"
 					append "\nThis command requires the \"$permission\" ($emoji) permission."
 					append "\n```"
-					return toString()
 				}
+				
+				builder.toString()
 			}else{
 				"Command not found."
 			}
@@ -60,11 +61,11 @@ class HelpCommand implements CommandExecutor {
 			}
 			
 			builder.with {
-				append "\n```"
 				append "\nPermissions: 🙂 for everyone, 🚷 for Editors, ☢ for Moderators."
 				append "\nFor more information on a particular command, give the help command the name of the command as an argument."
-				return toString()
 			}
+			
+			builder.toString()
 		}
 	}
 	

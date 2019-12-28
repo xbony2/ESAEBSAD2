@@ -4,12 +4,12 @@ import xbony2.esaebsad2.*
 import xbony2.esaebsad2.ActionHandler
 
 class EditPageAction extends Action {
-	private String title
-	private String prevWikitext
-	private String newWikitext
+	String title
+	String prevWikitext
+	String newWikitext
 	
 	EditPageAction(String commandName, String title, String prevWikitext, String newWikitext){
-		super("EditPageAction", commandName)
+		super("edit", commandName)
 		
 		this.title = title
 		this.prevWikitext = prevWikitext

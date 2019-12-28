@@ -4,11 +4,11 @@ import xbony2.esaebsad2.*
 import xbony2.esaebsad2.ActionHandler
 
 class DeletePageAction extends Action {
-	private String title
-	private String wikitext
+	String title
+	String wikitext
 	
 	DeletePageAction(String commandName, String title, String wikitext){
-		super("DeletePageAction", commandName)
+		super("delete", commandName)
 		
 		this.title = title
 		this.wikitext = wikitext

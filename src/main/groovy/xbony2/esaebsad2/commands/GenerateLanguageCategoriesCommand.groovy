@@ -12,7 +12,7 @@ class GenerateLanguageCategoriesCommand implements CommandExecutor {
 	@Command(aliases = ["!genlangcats"], requiredPermissions = "editor", description = 
 		"The generate language categories command will generate language-deviation categories based on the wanted categories list.")
 	onCommand(){
-		wiki.querySpecialPage("Wantedcategories", -1).each { page ->
+		wiki.querySpecialPage("Wantedcategories", -1).each { String page ->
 			def match = page =~ Utils.LANGUAGE_CATEGORY_REGEX
 			
 			if(match.find()){

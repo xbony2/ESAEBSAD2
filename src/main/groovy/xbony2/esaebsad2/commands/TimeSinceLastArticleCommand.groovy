@@ -32,9 +32,8 @@ class TimeSinceLastArticleCommand implements CommandExecutor {
 					&& !text.contains("{{Vanilla")){
 						
 					def secs = contrib.timestamp.secondsUntil(Instant.now())
-					def whenMade = contrib.timestamp.toDate()
 						
-					ret = "The last article created by $arg is $title, created on $whenMade. It has been $secs seconds."
+					ret = "The last article created by $arg is $title, created on ${Utils.formatter.format(contrib.timestamp)}. It has been $secs seconds."
 					return true // this will break from the closure
 				}
 			}

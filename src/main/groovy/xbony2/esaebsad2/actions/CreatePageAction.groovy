@@ -3,10 +3,10 @@ package xbony2.esaebsad2.actions
 import xbony2.esaebsad2.*
 
 class CreatePageAction extends Action {
-	private String title
+	String title
 	
 	CreatePageAction(String commandName, String title){
-		super("CreatePageAction", commandName)
+		super("create", commandName)
 		
 		this.title = title
 	}
