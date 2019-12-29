@@ -19,7 +19,7 @@ class ESAEBSAD2 {
 		jda.awaitReady()
 		
 		handler = new JDA3Handler(jda)
-		new JDA3Handler(jda).with {
+		handler.with {
 			registerCommand(new ArticleOfTheWeekCommand())
 			registerCommand(new DeleteUnusedLanguageCategoriesCommand())
 			registerCommand(new DevCommand())
