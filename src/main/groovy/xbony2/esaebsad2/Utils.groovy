@@ -27,23 +27,40 @@ class Utils {
 		}
 	}
 	
-	// TODO: perhaps put into one method
+	// TODO: test, remove unneeded helper methods
 	static String getOneArgument(Message message){
-		def match = message.getContentRaw() =~ /![a-z]+ (.+)/
+		/*def match = message.getContentRaw() =~ /![a-z]+ (.+)/
 		
-		match.find() ? match.group(1) : null
+		match.find() ? match.group(1) : null*/
+		getArguments(message, 1)
 	}
 	
 	static ArrayList<String> getTwoArguments(Message message){
-		def match = message.getContentRaw() =~ /![a-z]+ (.+); (.+)/
+		/*def match = message.getContentRaw() =~ /![a-z]+ (.+); (.+)/
 		
-		match.find() ? [match.group(1), match.group(2)] : null
+		match.find() ? [match.group(1), match.group(2)] : null*/
+		getArguments(message, 2)
 	}
 	
 	static ArrayList<String> getThreeArguments(Message message){
-		def match = message.getContentRaw() =~ /![a-z]+ (.+); (.+); (.+)/
+		/*def match = message.getContentRaw() =~ /![a-z]+ (.+); (.+); (.+)/
 		
-		match.find() ? [match.group(1), match.group(2), match.group(3)] : null
+		match.find() ? [match.group(1), match.group(2), match.group(3)] : null*/
+		getArguments(message, 3)
+	}
+	
+	static ArrayList<String> getArguments(Message message, int numArgs){
+		if(numArgs < 1)
+			throw new IllegalArgumentException()
+		
+		def match = message.getContentRaw() =~ (/![a-z]+ (.+)/ + (/(.+)/ * (numArgs - 1)))
+		
+		if(match.find()){
+			ArrayList<String> ret = []
+			numArgs.times {time -> ret.add(match.group(time + 1))}
+			ret
+		}else
+			null
 	}
 	
 	static String getUserMentionFromTag(String tag){

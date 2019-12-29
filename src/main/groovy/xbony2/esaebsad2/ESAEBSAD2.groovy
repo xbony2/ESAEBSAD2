@@ -2,25 +2,24 @@ package xbony2.esaebsad2
 
 import de.btobastian.sdcf4j.handler.JDA3Handler
 import fastily.jwiki.core.*;
-import fastily.jwiki.dwrap.*;
-import fastily.jwiki.util.FL;
-import fastily.jwiki.util.GSONP;
-import net.dv8tion.jda.core.AccountType
-import net.dv8tion.jda.core.JDA
-import net.dv8tion.jda.core.JDABuilder;
+import net.dv8tion.jda.core.*
 import okhttp3.HttpUrl
 import xbony2.esaebsad2.commands.*
 
 class ESAEBSAD2 {
 
-	static JDA jda
-	static JDA3Handler handler
+	// For some reason, if these are not public, trying to import statically won't work.
+	public static JDA jda
+	public static JDA3Handler handler
 	public static Wiki wiki
 	
 	static main(def args){
-		jda = new JDABuilder(AccountType.BOT).setToken(args[0]).buildBlocking()
+		//jda = new JDABuilder(AccountType.BOT).setToken(args[0]).buildBlocking()
+		jda = new JDABuilder(AccountType.BOT).setToken(args[0]).build()
+		jda.awaitReady()
+		
 		handler = new JDA3Handler(jda)
-		handler.with {
+		new JDA3Handler(jda).with {
 			registerCommand(new ArticleOfTheWeekCommand())
 			registerCommand(new DeleteUnusedLanguageCategoriesCommand())
 			registerCommand(new DevCommand())
@@ -30,11 +29,14 @@ class ESAEBSAD2 {
 			registerCommand(new GenerateLanguageCategoriesCommand())
 			registerCommand(new GiveHelpCommand())
 			registerCommand(new HelpCommand())
+			registerCommand(new ListActionsDoneByCommandCommand())
 			registerCommand(new ListActionsDoneCommand())
 			registerCommand(new RefreshRolesCommand())
 			registerCommand(new StopCommand())
 			registerCommand(new TimeSinceLastArticleCommand())
-			registerCommand(new UndoActionByID())
+			registerCommand(new UndoActionByIDCommand())
+			registerCommand(new UndoActionsByCommandCommand())
+			registerCommand(new UndoActionsByIDsCommand())
 		}
 		
 		Utils.setJDARoles()

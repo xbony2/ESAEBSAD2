@@ -33,8 +33,9 @@ Gradle takes care of all of the dependencies so you don't need to worry about th
 * Based on the above, perhaps commands to help do disambiguation, category renames, link renames, etc. I had some of this in the original ESAEBSAD but I didn't use it much so I don't know if they really worked.
 * WIP: A date of last article made command, with Retep998 being the default argument (lol).
 * WIP: Logging of actions that allows commands to be undone with an undo command/commands.
-** WIP: ListActionsDoneCommand
-** WIP: UndoActionByID
-** ListActionsDoneByCommandCommand
-** UndoActionsByIDs
+** ListActionsDoneCommand
+** UndoActionByIDCommand
+** WIP: ListActionsDoneByCommandCommand
+** WIP: UndoActionsByIDsCommand
+** WIP: UndoActionsByCommandCommand
 * Use Groovy's `metaClass` (mixin) features to add a `createPage` method to `Wiki`. Currently creating a new page goes through the `edit` method, so it won't error if the "creation" just edits a currently existing page. Also maybe other cheats I can do with mixins.

@@ -8,7 +8,7 @@ import xbony2.esaebsad2.Utils
 import xbony2.esaebsad2.actions.Action
 
 class ListActionsDoneCommand implements CommandExecutor {
-	@Command(aliases = ["!listactionsdone"], description = "Lists the actions done by the bot. With no arguments, it will list just the first ten. Given two arguments, which must two ints, the first argument will be the action ID that it will start at, and the last will be the action ID it'll stop at it (unless there are more than ten actions between them, in which case, it will only print the first ten starting at the first ID).")
+	@Command(aliases = ["!listactionsdone"], description = "The list actions done command lists the actions done by the bot. With no arguments, it will list just the first ten. Given two arguments, which must be two ints, the first argument will be the action ID that it will start at, and the last will be the action ID it'll stop at (unless there are more than ten actions between them, in which case, it will only print the first ten starting at the first ID).")
 	onCommand(Message message){
 		def args = Utils.getTwoArguments(message)
 		def ret = new StringBuilder()

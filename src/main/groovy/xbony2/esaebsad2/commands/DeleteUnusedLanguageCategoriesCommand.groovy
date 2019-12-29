@@ -4,8 +4,7 @@ import static xbony2.esaebsad2.ESAEBSAD2.wiki
 
 import de.btobastian.sdcf4j.Command
 import de.btobastian.sdcf4j.CommandExecutor
-import xbony2.esaebsad2.ActionHandler
-import xbony2.esaebsad2.Utils
+import xbony2.esaebsad2.*
 import xbony2.esaebsad2.actions.DeletePageAction
 
 class DeleteUnusedLanguageCategoriesCommand implements CommandExecutor {
