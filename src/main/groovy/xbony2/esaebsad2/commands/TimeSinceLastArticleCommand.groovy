@@ -14,7 +14,7 @@ import xbony2.esaebsad2.Utils
 class TimeSinceLastArticleCommand implements CommandExecutor {
 	@Command(aliases = ["!timesincelastarticle"], description = "The time since last article command will give the amount of time it has been since the last article that the user (whose username is given as an argument) was created. Doesn't count redirects, vanilla, and disambiguation pages. This command might be very slow and possibly might not work at all if the wiki throws a \"429 Too Many Requests\" error.")
 	onCommand(Message message){
-		def arg = Utils.getOneArgument(message) ?: "Retep998"
+		def args = Utils.getOneArgument(message) ?: "Retep998"
 		def ret = ""
 		
 		//TODO: Find a better way around the 429 Too Many Requests issue, or at least catch it and get it to pause or something
@@ -22,7 +22,7 @@ class TimeSinceLastArticleCommand implements CommandExecutor {
 		def foundContrib = wiki.getContribs(arg, -1, false, NS.MAIN).find { Contrib contrib ->
 			def title = contrib.title
 			
-			if(arg.equals(wiki.getPageCreator(title))
+			if(args[0].equals(wiki.getPageCreator(title))
 				&& wiki.getRevisions(title, 1, true, null, null)[0].timestamp.equals(contrib.timestamp)){
 					
 				def text = wiki.getPageText(title)
@@ -33,7 +33,7 @@ class TimeSinceLastArticleCommand implements CommandExecutor {
 						
 					def secs = contrib.timestamp.secondsUntil(Instant.now())
 						
-					ret = "The last article created by $arg is $title, created on ${Utils.formatter.format(contrib.timestamp)}. It has been $secs seconds."
+					ret = "The last article created by ${args[0]} is $title, created on ${Utils.formatter.format(contrib.timestamp)}. It has been $secs seconds."
 					return true // this will break from the closure
 				}
 			}

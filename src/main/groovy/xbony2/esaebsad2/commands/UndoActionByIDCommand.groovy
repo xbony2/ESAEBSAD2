@@ -10,13 +10,13 @@ import xbony2.esaebsad2.actions.Action
 class UndoActionByIDCommand implements CommandExecutor {
 	@Command(aliases = ["!undoactionbyid"], requiredPermissions = "moderator", description = "The undo action by ID undoes an action based on the action ID given as an argument.")
 	onCommand(Message message){
-		def arg = Utils.getOneArgument(message)
+		def args = Utils.getOneArgument(message)
 		
 		try {
-			if(arg == null)
+			if(args == null)
 				throw new IllegalArgumentException()
 			
-			def id = Integer.parseInt(arg)
+			def id = Integer.parseInt(args[0])
 			
 			Action toRemove = null
 			

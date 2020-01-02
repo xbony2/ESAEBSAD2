@@ -28,7 +28,7 @@ class Utils {
 	}
 	
 	// TODO: test, remove unneeded helper methods
-	static String getOneArgument(Message message){
+	static ArrayList<String> getOneArgument(Message message){
 		/*def match = message.getContentRaw() =~ /![a-z]+ (.+)/
 		
 		match.find() ? match.group(1) : null*/
@@ -53,7 +53,7 @@ class Utils {
 		if(numArgs < 1)
 			throw new IllegalArgumentException()
 		
-		def match = message.getContentRaw() =~ (/![a-z]+ (.+)/ + (/(.+)/ * (numArgs - 1)))
+		def match = message.getContentRaw() =~ (/![a-z]+ (.+)/ + (/; (.+)/ * (numArgs - 1)))
 		
 		if(match.find()){
 			ArrayList<String> ret = []

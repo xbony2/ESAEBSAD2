@@ -8,7 +8,7 @@ import xbony2.esaebsad2.Utils
 import xbony2.esaebsad2.actions.Action
 
 class ListActionsDoneByCommandCommand implements CommandExecutor {
-	@Command(aliases = ["!listactionsdonebycommand"], description = "The list actions done by command command lists the actions done by the bot by a particular command. With one argument, it will list just the first ten done by that command. Given three arguments, which must the command plus two ints, the second argument will be the action ID that it will start at, and the last will be the action ID it'll stop at it (unless there are more than ten actions between them, in which case, it will only print the first ten starting at the first ID). Note that the first argument (the command name) should not include an exclamation mark.")
+	@Command(aliases = ["!listactionsdonebycommand"], description = "The list actions done by command command lists the actions done by the bot by a particular command. With one argument, it will list just the first ten done by that command. Given three arguments, which must the command plus two ints, the second argument will be the action ID that it will start at, and the last will be the action ID it'll stop at it (unless there are more than ten actions between them, in which case, it will only print the first ten starting at the first ID). Note that the first argument (the command name) should not include an exclamation mark. An example use is !listactionsdonebycommand gencolorredirects; 3; 20")
 	onCommand(Message message){
 		def args = Utils.getThreeArguments(message)
 		def ret = new StringBuilder()
@@ -31,16 +31,19 @@ class ListActionsDoneByCommandCommand implements CommandExecutor {
 				ret.append "From ID ${startId} to ${endId}:"
 				ret.append "\n```"
 				
-				ArrayList<Action> actionsOfCommand =
-					ActionHandler.actions.findAll {Action action -> action.commandName.equals(args[0])}
+				ArrayList<Action> actionsOfCommand = ActionHandler.actions.findAll {Action action -> 
+					action.commandName.equals(args[0])
+				}
 				
 				if(actionsOfCommand.isEmpty())
 					return "There were no actions found."
 				
 				def i = 0
 				actionsOfCommand.each { Action action ->
-					if(i < 10 && action.id >= startId && action.id <= endId)
+					if(i < 10 && action.id >= startId && action.id <= endId){
 						ret.append "\n${action.format()}"
+						i++
+					}
 				}
 				
 				ret.append "\n```"

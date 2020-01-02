@@ -11,9 +11,9 @@ class HelpCommand implements CommandExecutor {
 	@Command(aliases = ["!help"], description = 
 		"The help command gives a list of commands. Specifics can be given if the help command is run with a single parameter, such as `!help dev`.")
 	onCommand(Message message){
-		def arg = Utils.getOneArgument(message)
+		def args = Utils.getOneArgument(message)
 		
-		if(arg != null){
+		if(args != null){
 			SimpleCommand commandRequested = null;
 			
 			ESAEBSAD2.handler.getCommands().each { command ->
@@ -23,7 +23,7 @@ class HelpCommand implements CommandExecutor {
 				if(!match.find())
 					throw new Exception("Failed match with the command name (not suppose to happen).");
 				
-				if(match.group(1).equals(arg))
+				if(match.group(1).equals(args[0]))
 					commandRequested = command
 			}
 			

@@ -35,7 +35,7 @@ Gradle takes care of all of the dependencies so you don't need to worry about th
 * WIP: Logging of actions that allows commands to be undone with an undo command/commands.
 ** ListActionsDoneCommand
 ** UndoActionByIDCommand
-** WIP: ListActionsDoneByCommandCommand
+** ListActionsDoneByCommandCommand
 ** WIP: UndoActionsByIDsCommand
 ** WIP: UndoActionsByCommandCommand
 * Use Groovy's `metaClass` (mixin) features to add a `createPage` method to `Wiki`. Currently creating a new page goes through the `edit` method, so it won't error if the "creation" just edits a currently existing page. Also maybe other cheats I can do with mixins.

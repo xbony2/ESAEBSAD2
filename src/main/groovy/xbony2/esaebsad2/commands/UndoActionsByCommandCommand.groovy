@@ -10,17 +10,17 @@ import xbony2.esaebsad2.actions.Action
 class UndoActionsByCommandCommand implements CommandExecutor {
 	@Command(aliases = ["!undoactionsbycommand"], requiredPermissions = "moderator", description = "The undo actions by command undoes an action based on the command that performed that action. Note that the argument (the command name) should not include an exclamation mark.")
 	onCommand(Message message){
-		def arg = Utils.getOneArgument(message)
+		def args = Utils.getOneArgument(message)
 		
-		if(arg == null)
+		if(args == null)
 			"Illegal argument/arguments (or lack thereof)."
 		
 		ArrayList<Action> toRemove = []
 		ArrayList<Action> failedActions = []
 			
 		ActionHandler.actions.each { Action action ->
-			if(action.commandName.equals(arg)){
-				if(action.undoAction("undoactionsbyids"))
+			if(action.commandName.equals(args[0])){
+				if(action.undoAction("undoactionsbycommand"))
 					toRemove.add(action)
 				else
 					failedActions.add(action)
