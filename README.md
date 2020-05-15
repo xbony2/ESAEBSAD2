@@ -24,7 +24,7 @@ Just run the command `!help` and it will list all of the commands and how to use
 ## Dependencies
 Gradle takes care of all of the dependencies so you don't need to worry about them, but here's what libraries this bot uses:
 * [Groovy](http://groovy-lang.org/)
-* [Java Discord API 3 (aka JDA3)](https://github.com/DV8FromTheWorld/JDA) (not JDA 4, since the next library doesn't support it yet)
+* [Java Discord API 3 (aka JDA3)](https://github.com/DV8FromTheWorld/JDA) (not JDA 4, since sdcf4j doesn't support it yet)
 * [sdcf4j](https://github.com/Bastian/sdcf4j) (the core and the JDA3 library)
 * [jwiki](https://github.com/fastily/jwiki)
 

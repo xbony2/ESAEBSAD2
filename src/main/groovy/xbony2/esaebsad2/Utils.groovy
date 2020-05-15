@@ -27,25 +27,15 @@ class Utils {
 		}
 	}
 	
-	// TODO: test, remove unneeded helper methods
 	static ArrayList<String> getOneArgument(Message message){
-		/*def match = message.getContentRaw() =~ /![a-z]+ (.+)/
-		
-		match.find() ? match.group(1) : null*/
 		getArguments(message, 1)
 	}
 	
 	static ArrayList<String> getTwoArguments(Message message){
-		/*def match = message.getContentRaw() =~ /![a-z]+ (.+); (.+)/
-		
-		match.find() ? [match.group(1), match.group(2)] : null*/
 		getArguments(message, 2)
 	}
 	
 	static ArrayList<String> getThreeArguments(Message message){
-		/*def match = message.getContentRaw() =~ /![a-z]+ (.+); (.+); (.+)/
-		
-		match.find() ? [match.group(1), match.group(2), match.group(3)] : null*/
 		getArguments(message, 3)
 	}
 	

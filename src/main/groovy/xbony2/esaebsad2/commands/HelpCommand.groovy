@@ -14,14 +14,14 @@ class HelpCommand implements CommandExecutor {
 		def args = Utils.getOneArgument(message)
 		
 		if(args != null){
-			SimpleCommand commandRequested = null;
+			SimpleCommand commandRequested = null
 			
 			ESAEBSAD2.handler.getCommands().each { command ->
 				def annotation = command.getCommandAnnotation()
 				def match = (annotation.usage() ?: annotation.aliases()[0]) =~ /!(.+)/
 				
 				if(!match.find())
-					throw new Exception("Failed match with the command name (not suppose to happen).");
+					throw new Exception("Failed match with the command name (not suppose to happen).")
 				
 				if(match.group(1).equals(args[0]))
 					commandRequested = command

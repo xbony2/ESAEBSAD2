@@ -1,7 +1,7 @@
 package xbony2.esaebsad2
 
+import org.fastily.jwiki.core.Wiki
 import de.btobastian.sdcf4j.handler.JDA3Handler
-import fastily.jwiki.core.*;
 import net.dv8tion.jda.core.*
 import okhttp3.HttpUrl
 import xbony2.esaebsad2.commands.*
@@ -41,7 +41,10 @@ class ESAEBSAD2 {
 		
 		Utils.setJDARoles()
 		
-		wiki = new Wiki(args[1], args[2], HttpUrl.parse("https://ftb.gamepedia.com/api.php"), null, null)
-		//wiki = new Wiki(args[1], args[2], "ftb.gamepedia.com") // <- syntax if we can switch to jwiki 1.7.0
+		wiki = (new Wiki.Builder())
+			.withApiEndpoint(HttpUrl.parse("https://ftb.gamepedia.com/api.php"))
+			.withLogin(args[1], args[2])
+			.build()
+		
 	}
 }

@@ -2,7 +2,7 @@ package xbony2.esaebsad2.commands
 
 import de.btobastian.sdcf4j.Command
 import de.btobastian.sdcf4j.CommandExecutor
-import fastily.jwiki.core.NS;
+import org.fastily.jwiki.core.NS;
 import okhttp3.HttpUrl
 import xbony2.esaebsad2.ESAEBSAD2
 import xbony2.esaebsad2.Utils
