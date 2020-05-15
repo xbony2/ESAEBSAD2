@@ -28,14 +28,5 @@ Gradle takes care of all of the dependencies so you don't need to worry about th
 * [sdcf4j](https://github.com/Bastian/sdcf4j) (the core and the JDA3 library)
 * [jwiki](https://github.com/fastily/jwiki)
 
-## TODOs
-* A [find-replace command](https://github.com/xbony2/Experimental-Self-Aware-Electronic-Based-Space-Analyzing-Droid/blob/master/lib/esaebsad/plugins/commands/findreplace.rb) (or commands)
-* Based on the above, perhaps commands to help do disambiguation, category renames, link renames, etc. I had some of this in the original ESAEBSAD but I didn't use it much so I don't know if they really worked.
-* WIP: A date of last article made command, with Retep998 being the default argument (lol).
-* WIP: Logging of actions that allows commands to be undone with an undo command/commands.
-** ListActionsDoneCommand
-** UndoActionByIDCommand
-** ListActionsDoneByCommandCommand
-** WIP: UndoActionsByIDsCommand
-** WIP: UndoActionsByCommandCommand
-* Use Groovy's `metaClass` (mixin) features to add a `createPage` method to `Wiki`. Currently creating a new page goes through the `edit` method, so it won't error if the "creation" just edits a currently existing page. Also maybe other cheats I can do with mixins.
+## Development
+ESAEBSAD2 is currently in a constant state of development. Current issues are in GitHub Issues. Any problems with the bot should be reported there.
