@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-	compile "org.codehaus.groovy:groovy-all:3.0.3"
+	compile "org.codehaus.groovy:groovy-all:3.0.7"
 	compile "net.dv8tion:JDA:3.8.3_464" // can't use JDA 4 until sdcf4j supports it
 	compile "com.github.BtoBastian.sdcf4j:sdcf4j-core:v1.0.10"
 	compile "com.github.BtoBastian.sdcf4j:sdcf4j-jda3:v1.0.10"
